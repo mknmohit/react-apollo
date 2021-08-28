@@ -7,8 +7,9 @@ import {
   createHttpLink,
   InMemoryCache,
 } from '@apollo/client';
-import App from './components/App';
+import App from './containers/App';
 import './styles/index.css';
+import "antd/dist/antd.css";
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000'

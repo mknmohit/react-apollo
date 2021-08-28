@@ -1,8 +1,8 @@
 import React from 'react';
 import { gql, useMutation } from '@apollo/client';
-import { AUTH_TOKEN, LINKS_PER_PAGE } from '../constants';
-import { timeDifferenceForDate } from '../utils';
-import { FEED_QUERY } from './LinkList';
+import { AUTH_TOKEN, LINKS_PER_PAGE } from '../../constants';
+import { timeDifferenceForDate } from '../../utils';
+import { FEED_QUERY } from '../../components/LinkList';
 
 const VOTE_MUTATION = gql`
   mutation VoteMutation($linkId: ID!) {
