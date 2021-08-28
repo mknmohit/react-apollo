@@ -1,0 +1,11 @@
+.create {
+  margin: 30px 0px;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.create-container {
+  width: 100%;
+  max-width: 800px;
+}
