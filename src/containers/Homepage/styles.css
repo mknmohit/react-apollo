@@ -1,5 +1,4 @@
 .hero {
-  /* background-image: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ) url("../../assets/hero4.jpg"); */
   background-image: 
     linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ),
     url('../../assets/hero4.jpg');
@@ -15,10 +14,14 @@
   align-items: center;
   height: 100%;
   color: #fff;
-  font-weight: 900;
+  font-weight:700;
   font-size: 76px;
 }
 
 .spin-icon {
-  padding: 0 30px;
+  margin: 0 30px;
+}
+
+.spin-icon:hover {
+  animation-duration: 4s;
 }
