@@ -13,4 +13,9 @@
 
 .social-icons {
   margin: 0 10px;
+  transition: all .1s ease-in-out;
+}
+
+.social-icons:hover {
+  transform: scale(1.2);
 }
