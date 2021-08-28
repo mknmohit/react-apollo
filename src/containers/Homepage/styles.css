@@ -25,3 +25,13 @@
 .spin-icon:hover {
   animation-duration: 4s;
 }
+
+.section-heading {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.heading-label {
+  font-size: 42px;
+}
