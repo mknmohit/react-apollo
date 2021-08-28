@@ -1,20 +1,30 @@
-import React from 'react';
-import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
-import { AUTH_TOKEN } from '../../constants';
+import React from "react";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import { Button, PageHeader } from "antd";
+import { HomeOutlined, FormOutlined } from "@ant-design/icons";
 
 const Header = () => {
-  const history = useHistory();
-  const authToken = localStorage.getItem(AUTH_TOKEN);
   return (
-    <div className="flex pa1 justify-between nowrap orange">
-      <div className="flex flex-fixed black">
-        <div className="fw7 mr1">Logo</div>
-        <Link to="/" className="ml1 no-underline black">
-          Create
-        </Link>
-      </div>
-    </div>
+    <PageHeader
+      className="site-page-header"
+      title={<Link to="/">Mohit</Link>}
+      avatar={{
+        src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+      }}
+      extra={[
+        <Link to="/">
+          <Button key="1" icon={<HomeOutlined />}>
+            Home
+          </Button>
+        </Link>,
+        <Link to="/create">
+          <Button key="2" icon={<FormOutlined />}>
+            Create a Post
+          </Button>
+        </Link>,
+      ]}
+    />
   );
 };
 
