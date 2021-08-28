@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import Routes from "../../components/Routes";
 
 const App = () => (
@@ -8,6 +9,7 @@ const App = () => (
     <div className="background-gray">
       <Routes />
     </div>
+    <Footer />
   </div>
 );
 

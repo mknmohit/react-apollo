@@ -4,6 +4,10 @@ body {
   font-family: 'Roboto', Verdana, Geneva, sans-serif;
 }
 
+body a {
+  color: inherit;
+}
+
 input {
   max-width: 500px;
 }
