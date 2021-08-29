@@ -2,15 +2,16 @@ const { ApolloServer, PubSub } = require('apollo-server');
 const { PrismaClient } = require('@prisma/client');
 const Query = require('./resolvers/Query');
 const Mutation = require('./resolvers/Mutation');
-const Subscription = require('./resolvers/Subscription');
-const User = require('./resolvers/User');
-const Link = require('./resolvers/Link');
-const Vote = require('./resolvers/Vote');
+// const Subscription = require('./resolvers/Subscription');
+// const User = require('./resolvers/User');
+// const Link = require('./resolvers/Link');
+// const Vote = require('./resolvers/Vote');
+// const Post = require('./resolvers/Post');
 const fs = require('fs');
 const path = require('path');
-const { getUserId } = require('./utils');
+// const { getUserId } = require('./utils');
 
-const pubsub = new PubSub();
+// const pubsub = new PubSub();
 
 const prisma = new PrismaClient({
   errorFormat: 'minimal'
@@ -19,10 +20,15 @@ const prisma = new PrismaClient({
 const resolvers = {
   Query,
   Mutation,
-  Subscription,
-  User,
-  Link,
-  Vote
+  // Subscription,
+  // User,
+  // Link,
+  // Vote
+  Post: {
+    id: parent => parent.id,
+    title: parent => parent.title,
+    description: parent => parent.description
+  }
 };
 
 const server = new ApolloServer({
@@ -35,30 +41,30 @@ const server = new ApolloServer({
     return {
       ...req,
       prisma,
-      pubsub,
-      userId:
-        req && req.headers.authorization
-          ? getUserId(req)
-          : null
+      // pubsub,
+      // userId:
+        // req && req.headers.authorization
+        //   ? getUserId(req)
+        //   : null
     };
   },
-  subscriptions: {
-    onConnect: (connectionParams) => {
-      if (connectionParams.authToken) {
-        return {
-          prisma,
-          userId: getUserId(
-            null,
-            connectionParams.authToken
-          )
-        };
-      } else {
-        return {
-          prisma
-        };
-      }
-    }
-  }
+  // subscriptions: {
+  //   onConnect: (connectionParams) => {
+  //     if (connectionParams.authToken) {
+  //       return {
+  //         prisma,
+  //         userId: getUserId(
+  //           null,
+  //           connectionParams.authToken
+  //         )
+  //       };
+  //     } else {
+  //       return {
+  //         prisma
+  //       };
+  //     }
+  //   }
+  // }
 });
 
 server
