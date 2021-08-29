@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useHistory } from "react-router";
 import { LINKS_PER_PAGE } from "../../constants";
-// import Link from '../../components/Link';
+import ScrollToTop from '../../components/ScrollToTop';
 import { Link } from "react-router-dom";
 import { Card, Skeleton } from "antd";
 import { RightOutlined } from "@ant-design/icons";
@@ -42,7 +42,11 @@ const PostList = () => {
     });
   };
 
-  return <section className="posts">{renderCard()}</section>;
+  return (
+    <ScrollToTop>
+      <section className="posts">{renderCard()}</section>
+    </ScrollToTop>
+  );
 };
 
 export default PostList;

@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useHistory } from "react-router";
 import { Skeleton } from 'antd';
 import { LINKS_PER_PAGE } from "../../constants";
-// import Link from '../../components/Link';
+import ScrollToTop from '../../components/ScrollToTop';
 import { Link } from "react-router-dom";
 import { SINGLE_POST_QUERY } from "./query";
 import "./styles.css";
@@ -32,7 +32,9 @@ const SinglePost = (props) => {
   };
 
   return (
-    <section className="single-post-root">{renderCard()}</section>
+    <ScrollToTop>
+      <section className="single-post-root">{renderCard()}</section>
+    </ScrollToTop>
   );
 };
 
