@@ -1,30 +1,24 @@
-import React, { useState } from "react";
-import { gql, useMutation } from "@apollo/client";
+import React from "react";
+import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router";
 import { Form, Input, Button, Checkbox } from "antd";
 import { LINKS_PER_PAGE } from "../../constants";
 import { FEED_QUERY } from "../../components/LinkList";
+import { CREATE_POST_MUTATION } from "./mutation";
 import "./style.css";
-
-const CREATE_LINK_MUTATION = gql`
-  mutation PostMutation($description: String!, $url: String!) {
-    post(description: $description, url: $url) {
-      id
-      url
-      description
-    }
-  }
-`;
 
 const CreatePost = () => {
   const history = useHistory();
-  const [formState, setFormState] = useState({
-    description: "",
-    url: "",
-  });
+
+  const [createNewPost, { data, loading, error }] = useMutation(
+    CREATE_POST_MUTATION,
+    {
+      onCompleted: () => history.push(`/posts/${data.addNewPost.id}`),
+    }
+  );
 
   const onCreatePost = (values) => {
-    console.log("success", values);
+    createNewPost({ variables: values });
   };
 
   return (
