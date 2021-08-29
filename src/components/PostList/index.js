@@ -1,37 +1,22 @@
 import React from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useHistory } from "react-router";
 import { LINKS_PER_PAGE } from "../../constants";
 // import Link from '../../components/Link';
 import { Link } from "react-router-dom";
 import { Card } from "antd";
+import { POST_QUERY } from "./query";
 import "./styles.css";
 
 const { Meta } = Card;
 
 const PostList = () => {
-  const data = [
-    {
-      id: 1,
-      title: "title 1",
-      description: "description 1",
-    },
-    {
-      id: 2,
-      title: "title 2",
-      description: "description 2",
-    },
-    {
-      id: 3,
-      title: "title 3",
-      description: "description 3",
-    },
-  ];
+  const { data, loading, error } = useQuery(POST_QUERY);
 
   const renderCard = () => {
-    return data.map((item) => {
+    return data?.getAllPosts?.map((item) => {
       return (
-        <Link to={`/posts/${item.id}`}>
+        <Link to={`/posts/${item.id}`} key={item.id}>
           <Card
             hoverable
             style={{ minWidth: 320, maxWidth: 768, marginBottom: 16 }}

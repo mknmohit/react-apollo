@@ -14,13 +14,13 @@ const Header = () => {
           src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
         }}
         extra={[
-          <Link to="/">
-            <Button key="1" icon={<HomeOutlined />}>
+          <Link to="/" key="1">
+            <Button icon={<HomeOutlined />}>
               Home
             </Button>
           </Link>,
-          <Link to="/create">
-            <Button key="2" icon={<FormOutlined />}>
+          <Link to="/create" key="2">
+            <Button icon={<FormOutlined />}>
               Create a Post
             </Button>
           </Link>,
