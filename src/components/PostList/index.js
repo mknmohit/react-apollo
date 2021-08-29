@@ -18,11 +18,11 @@ const PostList = () => {
   const renderCard = () => {
     if (loading) {
       return (
-        <>
+        <div className="card-container">
           <Skeleton active />
           <Skeleton active />
           <Skeleton active />
-        </>
+        </div>
       )
     }
     return data?.getAllPosts?.map((item) => {
