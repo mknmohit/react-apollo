@@ -5,13 +5,13 @@ import { LINKS_PER_PAGE } from "../../constants";
 // import Link from '../../components/Link';
 import { Link } from "react-router-dom";
 import { Card } from "antd";
-import { POST_QUERY } from "./query";
+import { POSTS_QUERY } from "./query";
 import "./styles.css";
 
 const { Meta } = Card;
 
 const PostList = () => {
-  const { data, loading, error } = useQuery(POST_QUERY);
+  const { data, loading, error } = useQuery(POSTS_QUERY);
 
   const renderCard = () => {
     return data?.getAllPosts?.map((item) => {
