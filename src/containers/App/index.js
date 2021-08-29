@@ -7,7 +7,7 @@ import "./styles.css";
 const App = () => (
   <div className="app">
     <Header />
-    <div className="background-gray">
+    <div className="app-content">
       <Routes />
     </div>
     <Footer />
