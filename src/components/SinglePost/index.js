@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { useHistory } from "react-router";
+import { Skeleton } from 'antd';
 import { LINKS_PER_PAGE } from "../../constants";
 // import Link from '../../components/Link';
 import { Link } from "react-router-dom";
@@ -13,17 +14,26 @@ const SinglePost = (props) => {
   });
 
   const renderCard = () => {
-    if (data) {
+    if (loading) {
       return (
         <div className="single-post">
-          <p>{data.getSinglePost?.title}</p>
-          <p>{data.getSinglePost?.description}</p>
+          <Skeleton active />
+        </div>
+      )
+    }
+    if (data) {
+      return (
+        <div className="single-post capitalize">
+          <p className="post-title">{data.getSinglePost?.title}</p>
+          <p className="post-description">{data.getSinglePost?.description}</p>
         </div>
       );
     }
   };
 
-  return <section className="posts">{renderCard()}</section>;
+  return (
+    <section className="single-post-root">{renderCard()}</section>
+  );
 };
 
 export default SinglePost;
