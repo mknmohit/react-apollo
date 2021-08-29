@@ -6,6 +6,7 @@ import { LINKS_PER_PAGE } from "../../constants";
 import { Link } from "react-router-dom";
 import { Card, Skeleton } from "antd";
 import { RightOutlined } from "@ant-design/icons";
+import truncate from "lodash.truncate";
 import { POSTS_QUERY } from "./query";
 import "./styles.css";
 
@@ -34,7 +35,7 @@ const PostList = () => {
             title={item.title}
             extra={<RightOutlined className="card-icon" />}
           >
-            <Meta className="capitalize" description={item.description} />
+            <Meta className="capitalize" description={truncate(item.description, {length: 400})} />
           </Card>
         </Link>
       );
