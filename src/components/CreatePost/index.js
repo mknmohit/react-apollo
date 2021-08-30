@@ -1,8 +1,6 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { Form, Input, Button, notification } from "antd";
-import { LINKS_PER_PAGE } from "../../constants";
-import { FEED_QUERY } from "../../components/LinkList";
 import { CREATE_POST_MUTATION } from "./mutation";
 import "./style.css";
 
@@ -11,28 +9,29 @@ const CreatePost = () => {
 
   const showSuccessMessage = (newPost) => {
     const postId = newPost?.addNewPost.id;
-        if (postId) {
-          const btn = (
-              <Button type="success" href={`/posts/${postId}`} onClick={() => notification.close()}>
-                View Now
-              </Button>
-          );
-          return notification.success({
-            message: "Successfully Created",
-            description: `New post is successfully created with id: ${postId}`,
-            btn,
-            duration: 0,
-          });
-        }
-      return null;
-  }
-
-  const [createNewPost, { data, loading, error }] = useMutation(
-    CREATE_POST_MUTATION,
-    {
-      onCompleted: (newPost) => showSuccessMessage(newPost),
+    if (postId) {
+      const btn = (
+        <Button
+          type="success"
+          href={`/posts/${postId}`}
+          onClick={() => notification.close()}
+        >
+          View Now
+        </Button>
+      );
+      return notification.success({
+        message: "Successfully Created",
+        description: `New post is successfully created with id: ${postId}`,
+        btn,
+        duration: 0,
+      });
     }
-  );
+    return null;
+  };
+
+  const [createNewPost, { loading }] = useMutation(CREATE_POST_MUTATION, {
+    onCompleted: (newPost) => showSuccessMessage(newPost),
+  });
 
   const onCreatePost = (values) => {
     createNewPost({ variables: values });

@@ -15,14 +15,10 @@ const Header = () => {
         }}
         extra={[
           <Link to="/" key="1">
-            <Button icon={<HomeOutlined />}>
-              Home
-            </Button>
+            <Button icon={<HomeOutlined />}>Home</Button>
           </Link>,
           <Link to="/create" key="2">
-            <Button icon={<FormOutlined />}>
-              Create a Post
-            </Button>
+            <Button icon={<FormOutlined />}>Create a Post</Button>
           </Link>,
         ]}
       />

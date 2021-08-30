@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { useHistory } from "react-router";
-import { LINKS_PER_PAGE } from "../../constants";
 import ScrollToTop from "../../components/ScrollToTop";
 import { Link } from "react-router-dom";
 import { Card, Pagination, Skeleton } from "antd";
@@ -30,7 +28,7 @@ const PostList = () => {
 
   const onShowSizeChange = (current, size) => {
     setPostsPerPageState(size);
-  }
+  };
 
   const renderPagination = () => {
     if (data?.getAllPosts?.total) {

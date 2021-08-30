@@ -1,23 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import {
   ApolloClient,
   ApolloProvider,
   createHttpLink,
   InMemoryCache,
-} from '@apollo/client';
-import App from './containers/App';
-import './styles/index.css';
+} from "@apollo/client";
+import App from "./containers/App";
+import "./global-styles/index.css";
 import "antd/dist/antd.css";
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000'
+  uri: "http://localhost:4000",
 });
 
 const client = new ApolloClient({
   link: httpLink,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
@@ -26,5 +26,5 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

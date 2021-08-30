@@ -1,15 +1,12 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { useHistory } from "react-router";
-import { Skeleton } from 'antd';
-import { LINKS_PER_PAGE } from "../../constants";
-import ScrollToTop from '../../components/ScrollToTop';
-import { Link } from "react-router-dom";
+import { Skeleton } from "antd";
+import ScrollToTop from "../../components/ScrollToTop";
 import { SINGLE_POST_QUERY } from "./query";
 import "./styles.css";
 
 const SinglePost = (props) => {
-  const { data, loading, error } = useQuery(SINGLE_POST_QUERY, {
+  const { data, loading } = useQuery(SINGLE_POST_QUERY, {
     variables: { postId: props.match.params?.postId },
   });
 
@@ -19,7 +16,7 @@ const SinglePost = (props) => {
         <div className="single-post">
           <Skeleton active />
         </div>
-      )
+      );
     }
     if (data) {
       return (
