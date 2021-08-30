@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import ScrollToTop from "../../components/ScrollToTop";
 import { Link } from "react-router-dom";
-import { Card, Pagination, Skeleton } from "antd";
+import { Card, Button, Empty, Pagination, Skeleton } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import truncate from "lodash.truncate";
 import { POSTS_PER_PAGE } from "../../utils/constants";
@@ -78,9 +78,22 @@ const PostList = () => {
     });
   };
 
+  const renderEmptyMessage = () => {
+    if (!data?.getAllPosts?.total) {
+      return (
+        <Empty>
+          <Link to="/create">
+            <Button type="primary">Create Now</Button>
+          </Link>
+        </Empty>
+      );
+    }
+  };
+
   return (
     <ScrollToTop>
       <section className="posts">
+        {renderEmptyMessage()}
         {renderCard()}
         {renderPagination()}
       </section>
