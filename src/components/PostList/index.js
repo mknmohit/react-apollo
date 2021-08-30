@@ -79,7 +79,7 @@ const PostList = () => {
   };
 
   const renderEmptyMessage = () => {
-    if (!data?.getAllPosts?.total) {
+    if (!loading && !data?.getAllPosts?.total) {
       return (
         <Empty>
           <Link to="/create">
