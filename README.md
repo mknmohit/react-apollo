@@ -35,3 +35,15 @@ Now that the server is running, you can start the React app as well. The command
 	yarn start
 	```
 1. You can now open your browser and use the app on [http://localhost:3000](http://localhost:3000).
+
+----
+
+# Screenshots
+![No Blog Post](/../screenshots/src/assets/screenshots/1.png?raw=true "No Blog Post")
+![Loading Posts](/../screenshots/src/assets/screenshots/2.png?raw=true "Loading Posts")
+![Create Post](/../screenshots/src/assets/screenshots/3.png?raw=true "Create Post")
+![Post Validation](/../screenshots/src/assets/screenshots/4.png?raw=true "Post Validation")
+![Blog Posts with pagination](/../screenshots/src/assets/screenshots/5.png?raw=true "Blog Post with pagination")
+![Single Post View](/../screenshots/src/assets/screenshots/6.png?raw=true "Single Post View")
+![Single Post Not Found](/../screenshots/src/assets/screenshots/7.png?raw=true "Single Post Not Found")
+![404 Page](/../screenshots/src/assets/screenshots/8.png?raw=true "404 Page")
