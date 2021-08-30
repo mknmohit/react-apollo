@@ -21,3 +21,7 @@
 .card:hover .card-icon {
   visibility: visible;
 }
+
+.pagination {
+  margin-top: 24px;
+}
