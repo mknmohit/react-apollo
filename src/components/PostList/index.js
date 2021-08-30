@@ -15,7 +15,7 @@ const PostList = () => {
   const [currentPageState, setCurrentPageState] = useState(1);
   const [postsPerPageState, setPostsPerPageState] = useState(POSTS_PER_PAGE);
 
-  const { data, loading, error } = useQuery(POSTS_QUERY, {
+  const { data, loading } = useQuery(POSTS_QUERY, {
     variables: {
       currentPage: currentPageState,
       itemsPerPage: postsPerPageState,
