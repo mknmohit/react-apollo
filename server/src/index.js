@@ -28,6 +28,11 @@ const resolvers = {
     id: parent => parent.id,
     title: parent => parent.title,
     description: parent => parent.description
+  },
+  Blog: {
+    results: parent => parent.results,
+    total: parent => parent.total,
+    currentPage: parent => parent.currentPage
   }
 };
 

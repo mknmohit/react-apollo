@@ -7,13 +7,19 @@ import { Link } from "react-router-dom";
 import { Card, Skeleton } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import truncate from "lodash.truncate";
+import { POSTS_PER_PAGE } from "../../utils/constants"
 import { POSTS_QUERY } from "./query";
 import "./styles.css";
 
 const { Meta } = Card;
 
 const PostList = () => {
-  const { data, loading, error } = useQuery(POSTS_QUERY);
+  const { data, loading, error } = useQuery(POSTS_QUERY, {
+    variables: {
+      currentPage: 1,
+      itemsPerPage: POSTS_PER_PAGE
+    }
+  });
 
   const renderCard = () => {
     if (loading) {
@@ -25,12 +31,12 @@ const PostList = () => {
         </div>
       )
     }
-    return data?.getAllPosts?.map((item) => {
+    return data?.getAllPosts?.results?.map((item) => {
       return (
         <Link to={`/posts/${item.id}`} key={item.id} className="card-container">
           <Card
             hoverable
-            style={{ minWidth: 320, maxWidth: 768, marginBottom: 16 }}
+            style={{ minWidth: 320, maxWidth: 800, marginBottom: 16 }}
             className="card"
             title={item.title}
             extra={<RightOutlined className="card-icon" />}
