@@ -7,14 +7,14 @@ type Mutation {
   addNewPost(title: String!, description: String!): Post
 }
 
-type Post {
-  id: ID
-  title: String!
-  description: String!
-}
-
 type Blog {
   results: [Post]
   total: Int
   currentPage: Int
+}
+
+type Post {
+  id: ID
+  title: String!
+  description: String!
 }
