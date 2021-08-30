@@ -1,0 +1,21 @@
+.single-post-root {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.single-post {
+  padding: 20px;
+  max-width: 800px;
+  width: 100%;
+  border-left: 1px solid #e2e2e2;
+}
+
+.post-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.post-description {
+  font-size: 22px;
+}

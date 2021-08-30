@@ -1,16 +1,16 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import CreateLink from "../../components/CreateLink";
 import Header from "../../components/Header";
-import LinkList from "../../components/LinkList";
+import Footer from "../../components/Footer";
 import Routes from "../../components/Routes";
+import "./styles.css";
 
 const App = () => (
-  <div className="center w85">
+  <div className="app">
     <Header />
-    <div className="ph3 pv1 background-gray">
+    <div className="app-content">
       <Routes />
     </div>
+    <Footer />
   </div>
 );
 

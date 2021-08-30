@@ -1,0 +1,36 @@
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 72px);
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 76px;
+}
+
+.spin-icon {
+  margin: 0 30px;
+}
+
+.spin-icon:hover {
+  animation-duration: 4s;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.heading-label {
+  font-size: 42px;
+}
