@@ -19,7 +19,7 @@ const getSinglePost = async (parent, args, context, info) => {
     },
   });
   if (!singlePost) {
-    throw new Error(`Post with id: ${args.id} not found!`);
+    throw new Error(`Post with id ${args.id} not found!`);
   }
   return singlePost;
 };

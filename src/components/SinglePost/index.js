@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { Skeleton } from "antd";
+import { Button, Result, Skeleton } from "antd";
 import ScrollToTop from "../../components/ScrollToTop";
 import { SINGLE_POST_QUERY } from "./query";
 import "./styles.css";
 
 const SinglePost = (props) => {
-  const { data, loading } = useQuery(SINGLE_POST_QUERY, {
+  const { data, loading, error } = useQuery(SINGLE_POST_QUERY, {
     variables: { postId: props.match.params?.postId },
   });
 
@@ -28,9 +29,30 @@ const SinglePost = (props) => {
     }
   };
 
+  const renderErrorMessage = () => {
+    console.log("error: ", error);
+    if (error) {
+      return (
+        <Result
+          status="error"
+          title={`${error}`}
+          subTitle="Please check the post id or go back to home page and open the required post."
+          extra={[
+            <Link to="/" key="home">
+              <Button type="primary">Back To Home</Button>
+            </Link>,
+          ]}
+        />
+      );
+    }
+  };
+
   return (
     <ScrollToTop>
-      <section className="single-post-root">{renderCard()}</section>
+      <section className="single-post-root">
+        {renderErrorMessage()}
+        {renderCard()}
+      </section>
     </ScrollToTop>
   );
 };
