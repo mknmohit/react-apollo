@@ -1,91 +1,37 @@
-# React & Apollo Tutorial
+# Create Post using React & Apollo
 
-This is the sample project that belongs to the [React & Apollo Tutorial](https://www.howtographql.com/react-apollo/0-introduction/) on How to GraphQL.
 
-## How to use
+## 1. :wrench: Setup Project
 
-### 1. Clone repository
+1. Make sure that you have Node.js v8.15.1 or above installed.
+1. Clone this repo by running below command
+	```sh
+	git clone https://github.com/mknmohit/react-apollo.git
+	```
+1. Move to the appropriate directory i.e `cd react-apollo`.
+1. Now follow below steps to setup/run server and client.
 
-```sh
-git clone https://github.com/howtographql/react-apollo/
-```
+## 2. :rocket: Setup Server
+1. To install the Prisma CLI globally with Yarn, use the following command:
+	```sh
+	yarn global add prisma
+  	```
+1. Move inside the _react-apollo/**server**_ directory by running the command `cd server` and run the following commands:
+	```sh
+	yarn install
+	yarn start
+	```
+> **Note 1**: If you want to interact with the GraphQL API of the server inside a [GraphQL Playground](https://github.com/prisma/graphql-playground), you can navigate to [http://localhost:4000](http://localhost:4000).
 
-### 2. Install dependencies & Deploy the Prisma database API
+> **Note 2**: If you face any problem while running up the server then you can follow the guideline on official documentation to migrate the db [https://www.prisma.io/docs/concepts/components/prisma-migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 
-To install the Prisma CLI globally with Yarn, use the following command:
-```sh
-yarn global add prisma
-```
 
-Also, run the following commands:
-```sh
-cd react-apollo/server
-yarn install
-prisma deploy
-```
-
-Then, follow these steps in the interactive CLI wizard:
-
-1. Select **Demo server**
-1. **Authenticate** with Prisma Cloud in your browser (if necessary)
-1. Back in your terminal, **confirm all suggested values**
-
-<details>
- <summary>Alternative: Run Prisma locally via Docker</summary>
-
-1. Ensure you have Docker installed on your machine. If not, you can get it from [here](https://store.docker.com/search?offering=community&type=edition).
-1. Create `docker-compose.yml` for MySQL (see [here](https://www.prisma.io/docs/prisma-server/database-connector-POSTGRES-jgfr/) for Postgres):
-    ```yml
-    version: '3'
-    services:
-      prisma:
-        image: prismagraphql/prisma:1.23
-        restart: always
-        ports:
-        - "4466:4466"
-        environment:
-          PRISMA_CONFIG: |
-            port: 4466
-            databases:
-              default:
-                connector: mysql
-                host: mysql
-                port: 3306
-                user: root
-                password: prisma
-                migrations: true
-      mysql:
-        image: mysql:5.7
-        restart: always
-        environment:
-          MYSQL_ROOT_PASSWORD: prisma
-        volumes:
-          - mysql:/var/lib/mysql
-    volumes:
-      mysql:
-    ```
-1. Run `docker-compose up -d`
-1. Run `prisma deploy`
-
-</details>
-
-### 3. Start the server
-
-To start the server, all you need to do is execute the `start` script by running the following command inside the `server` directory:
-
-```sh
-yarn start
-```
-
-> **Note**: If you want to interact with the GraphQL API of the server inside a [GraphQL Playground](https://github.com/prisma/graphql-playground), you can navigate to [http://localhost:4000](http://localhost:4000).
-
-### 4. Run the app
-
-Now that the server is running, you can start the React app as well. The commands need to be run in a new terminal tab/window inside the root directory `react-apollo` (because the current tab is blocked by the process running the server):
-
-```sh
-yarn install
-yarn start
-```
-
-You can now open your browser and use the app on [http://localhost:3000](http://localhost:3000).
+## 3. :computer: Setup Client
+Now that the server is running, you can start the React app as well. The commands need to be run in a new terminal tab/window inside the root directory `react-apollo` (because the current tab is blocked by the process running the server.
+1. Go back to root directory by running `cd .../`
+1. Run the following commands:
+	```sh
+	yarn install
+	yarn start
+	```
+1. You can now open your browser and use the app on [http://localhost:3000](http://localhost:3000).
